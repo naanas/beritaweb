@@ -2,22 +2,30 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
+        // User admin@example.com akan dibuat di RolesAndPermissionsSeeder
+        // Jika Anda sebelumnya memiliki User::firstOrCreate di sini, hapus atau komentari
+        // User::firstOrCreate(
+        //     ['email' => 'ad@ad.com'],
+        //     [
+        //         'name' => 'Admin User',
+        //         'password' => bcrypt('123'),
+        //     ]
+        // );
+
         $this->call([
-            // UserSeeder::class, // Jika Anda memiliki seeder user sendiri
-            RolesAndPermissionsSeeder::class, // <-- Panggil seeder ini
-            // CategorySeeder::class, // Contoh, jika Anda punya seeder lain
-            // PostSeeder::class,
+            CategorySeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

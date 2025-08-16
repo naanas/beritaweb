@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles; // PENTING: Import HasRoles Trait
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +27,7 @@ class User extends Authenticatable
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var array<string, string>
      */
     protected $hidden = [
         'password',
@@ -40,5 +41,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        // --- PENTING: HAPUS ATAU KOMENTARI BARIS DI BAWAH INI JIKA ANDA MENGGUNAKAN LARAVEL < 10 ---
+        // 'password' => 'hashed',
+        // --- Akhir Perbaikan ---
     ];
 }
