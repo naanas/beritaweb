@@ -1,0 +1,534 @@
+/* public/css/style.css - Versi Lengkap dan Terbaru */
+
+/* --- 1. Global Reset & Basic Styles --- */
+/* Mengatur margin dan padding ke 0 untuk semua elemen, dan menggunakan border-box untuk model kotak */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Memastikan elemen html dan body memiliki tinggi 100% dari viewport */
+html, body {
+    height: 100%;
+}
+
+/* Gaya dasar untuk body */
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    line-height: 1.6; /* Tinggi baris untuk keterbacaan */
+    color: #333; /* Warna teks utama */
+    background-color: #f4f7f6; /* Warna latar belakang halaman */
+
+    /* --- Konfigurasi Sticky Footer --- */
+    display: flex; /* Mengubah body menjadi flex container */
+    flex-direction: column; /* Menata item-item (header, main, footer) secara vertikal */
+    min-height: 100vh; /* Memastikan body setidaknya setinggi seluruh viewport */
+    /* --- Akhir Konfigurasi Sticky Footer --- */
+}
+
+/* Gaya untuk kontainer utama, membatasi lebar konten dan memusatkannya */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Gaya dasar untuk link */
+a {
+    color: #007bff; /* Warna link biru */
+    text-decoration: none; /* Menghilangkan garis bawah default */
+}
+
+a:hover {
+    text-decoration: underline; /* Menambahkan garis bawah saat hover */
+}
+
+/* Gaya untuk gambar, memastikan responsif dan tidak meluap dari kontainernya */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 2. Header Styles --- */
+.header {
+    background-color: #2c3e50; /* Warna latar belakang header (biru gelap keabu-abuan) */
+    color: #fff; /* Warna teks header (putih) */
+    padding: 15px 0; /* Padding atas dan bawah */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan di bawah header */
+}
+
+.header .container {
+    display: flex; /* Menggunakan flexbox untuk tata letak logo dan navigasi */
+    justify-content: space-between; /* Menempatkan logo di kiri dan navigasi di kanan */
+    align-items: center; /* Memusatkan item secara vertikal */
+}
+
+.logo {
+    font-size: 1.8em; /* Ukuran font logo */
+    font-weight: 600; /* Ketebalan font logo */
+}
+
+.logo a {
+    color: #fff; /* Warna link logo */
+    text-decoration: none; /* Menghilangkan garis bawah link logo */
+}
+
+/* --- 3. Navigation Bar Styles --- */
+.nav ul {
+    list-style: none; /* Menghilangkan bullet point dari daftar navigasi */
+}
+
+.nav ul li {
+    display: inline-block; /* Menjadikan item navigasi sejajar */
+    margin-left: 20px; /* Jarak antar item navigasi */
+}
+
+.nav ul li a {
+    color: #fff; /* Warna teks link navigasi */
+    font-weight: 400; /* Ketebalan font link navigasi */
+    transition: color 0.3s ease; /* Transisi halus saat warna berubah */
+}
+
+.nav ul li a:hover {
+    color: #a4d4ff; /* Warna link navigasi saat hover (biru lebih terang) */
+    text-decoration: none; /* Menghilangkan garis bawah saat hover */
+}
+
+/* --- 4. Dropdown Styles for Navbar (Category Menu) --- */
+.nav ul li.dropdown {
+    position: relative; /* Penting untuk penempatan dropdown-content */
+    display: inline-block;
+}
+
+.nav ul li.dropdown .dropbtn {
+    display: inline-block; /* Agar panah dan teks sejajar */
+    padding-right: 20px; /* Memberi ruang untuk panah */
+    position: relative;
+}
+
+.nav ul li.dropdown .dropbtn .arrow-down {
+    border: solid white; /* Membuat panah dengan border */
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg); /* Memusatkan panah secara vertikal dan merotasinya */
+    -webkit-transform: translateY(-50%) rotate(45deg); /* Kompatibilitas browser WebKit */
+}
+
+.dropdown-content {
+    display: none; /* Tersembunyi secara default */
+    position: absolute; /* Penempatan absolut relatif terhadap parent dropdown */
+    background-color: #34495e; /* Warna latar belakang dropdown (biru keabu-abuan lebih terang) */
+    min-width: 160px; /* Lebar minimum dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Bayangan dropdown */
+    z-index: 1; /* Memastikan dropdown muncul di atas konten lain */
+    border-radius: 5px; /* Sudut membulat */
+    overflow: hidden; /* Penting untuk sudut membulat pada link anak */
+    top: 100%; /* Menempatkan dropdown tepat di bawah tombol dropdown */
+    left: 0;
+}
+
+.dropdown-content a {
+    color: white; /* Warna teks link dropdown */
+    padding: 12px 16px; /* Padding untuk link dropdown */
+    text-decoration: none;
+    display: block; /* Membuat link mengisi seluruh lebar item dropdown */
+    text-align: left;
+    transition: background-color 0.3s ease; /* Transisi halus untuk warna latar belakang */
+}
+
+.dropdown-content a:hover {
+    background-color: #4a667f; /* Warna latar belakang saat hover untuk item dropdown */
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Menampilkan dropdown saat hover pada elemen dropdown */
+}
+
+
+/* --- 5. Main Content Area --- */
+.main-content {
+    padding: 40px 0; /* Padding atas dan bawah untuk konten utama */
+    flex-grow: 1; /* Memungkinkan konten utama untuk mengisi semua ruang yang tersedia, mendorong footer ke bawah */
+}
+
+/* Gaya untuk judul bagian */
+.section-title {
+    font-size: 2.5em; /* Ukuran font judul bagian */
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: ''; /* Pseudo-elemen untuk garis bawah judul */
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%); /* Memusatkan garis */
+    width: 60px; /* Lebar garis */
+    height: 4px; /* Tinggi garis */
+    background-color: #007bff; /* Warna garis */
+    border-radius: 2px; /* Sudut membulat pada garis */
+}
+
+/* --- 6. News Grid (for homepage and category pages) --- */
+.news-grid {
+    display: grid; /* Menggunakan CSS Grid untuk tata letak kartu berita */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom responsif */
+    gap: 30px; /* Jarak antar kartu berita */
+    margin-bottom: 40px;
+}
+
+.news-card {
+    background-color: #fff; /* Warna latar belakang kartu berita */
+    border-radius: 8px; /* Sudut membulat pada kartu */
+    overflow: hidden; /* Memastikan konten di dalam kartu tidak meluap */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan kartu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Efek mengangkat kartu saat hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Bayangan lebih jelas saat hover */
+}
+
+.news-image {
+    width: 100%;
+    height: 200px; /* Tinggi tetap untuk gambar kartu agar konsisten */
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa terdistorsi */
+    display: block;
+}
+
+.news-info {
+    padding: 20px; /* Padding untuk konten teks di dalam kartu */
+}
+
+.news-category {
+    display: inline-block;
+    background-color: #007bff; /* Warna latar belakang kategori */
+    color: #fff; /* Warna teks kategori */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.news-title a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.news-title a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.news-excerpt {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.news-meta {
+    font-size: 0.8em;
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- 7. Pagination Styles --- */
+.pagination {
+    display: flex;
+    justify-content: center; /* Memusatkan pagination */
+    margin-top: 20px;
+}
+
+.pagination nav {
+    display: flex;
+    gap: 5px; /* Jarak antar link pagination */
+}
+
+.pagination nav .pagination-link { /* Gaya untuk link pagination */
+    display: block;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination nav .pagination-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination nav .pagination-link.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    font-weight: bold;
+}
+
+/* --- 8. Post Detail Page Styles --- */
+.post-detail {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.post-header {
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 3em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.post-meta span {
+    margin-right: 10px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Membatasi tinggi gambar post */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.post-content {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #444;
+}
+
+.post-content p {
+    margin-bottom: 1em;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+    color: #2c3e50;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;
+    margin: 40px 0;
+}
+
+/* --- 9. Comments Section Styles --- */
+.comments-section {
+    margin-top: 40px;
+}
+
+.comments-title {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.comment-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.comment-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.comment-content {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- 10. Comment Form Styles --- */
+.comment-form-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.comment-form-container h4 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* --- 11. Alert Messages (for success/error from session) --- */
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --- 12. Footer Styles --- */
+.footer {
+    background-color: #2c3e50; /* Warna latar belakang footer */
+    color: #fff; /* Warna teks footer */
+    text-align: center; /* Memusatkan teks */
+    padding: 20px 0; /* Padding atas dan bawah */
+    margin-top: 40px; /* Margin atas untuk jarak dari konten */
+    font-size: 0.9em; /* Ukuran font footer */
+}
+
+/* --- 13. Responsive Adjustments (Media Queries) --- */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column; /* Mengubah tata letak header menjadi kolom pada layar kecil */
+        text-align: center;
+    }
+
+    .nav ul {
+        margin-top: 15px;
+    }
+
+    .nav ul li {
+        margin: 0 10px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr; /* Mengubah grid berita menjadi satu kolom */
+    }
+
+    .post-detail {
+        padding: 20px; /* Mengurangi padding pada detail post */
+    }
+
+    .post-title {
+        font-size: 2em; /* Mengurangi ukuran font judul post */
+    }
+
+    .comments-title {
+        font-size: 1.5em; /* Mengurangi ukuran font judul komentar */
+    }
+
+    /* Penyesuaian responsif untuk dropdown navbar pada layar kecil */
+    .nav ul li.dropdown {
+        display: block; /* Membuat dropdown mengambil lebar penuh */
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .dropdown-content {
+        position: static; /* Menghilangkan posisi absolut agar mengalir normal */
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .dropdown-content a {
+        padding-left: 40px; /* Memberi indentasi untuk item sub-menu */
+    }
+
+    .nav ul li.dropdown .dropbtn .arrow-down {
+        right: 20px; /* Menyesuaikan posisi panah pada mobile */
+    }
+}
